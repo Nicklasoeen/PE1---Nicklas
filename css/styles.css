@@ -1,6 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  font-family: "Manrope", sans-serif;
+}
+
+.header {
+  background-color: #023530;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  height: 70px;
+  width: auto;
+  max-width: 200px;
+}
+
+.header-logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  margin: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #4caf50;
+}
+
 .registration-wrapper {
   height: 100vh;
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  width: 100%;
 }
