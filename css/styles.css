@@ -4,10 +4,25 @@
   font-family: "Manrope", sans-serif;
 }
 
+:root {
+  --primary: #023530;
+  --accent: #4caf50;
+  --accent-purple: #6e3aff;
+  --accent-purple-hover: #5a2fff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+}
+
 .header {
   background-color: #023530;
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 1200px;
+  align-items: center;
+  margin: 20px auto;
 }
 
 .header-container {
@@ -20,7 +35,7 @@
 }
 
 .header-logo {
-  height: 70px;
+  height: 50px;
   width: auto;
   max-width: 200px;
 }
@@ -54,13 +69,185 @@
 }
 
 .registration-wrapper {
-  height: 100vh;
+  margin-top: 40px;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-.submit-btn {
-  margin-top: 10px;
+.registration-shell {
+  background: none;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: none;
+  max-width: 1200px;
   width: 100%;
+  margin: 20px auto;
+}
+
+.registration-card {
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+}
+
+.registration-illustration {
+  background: url("/assets/close-up-view-of-green-abstract-creative-paper-bac-2026-01-06-00-29-07-utc.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 24px;
+  flex: 1.1;
+  order: 2;
+}
+
+.illustration-tagline {
+  background: rgba(255, 255, 255, 0.85);
+  color: #1f2937;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.registration-form {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0.9;
+  order: 1;
+}
+
+.registration-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+}
+
+.registration-form h1 {
+  margin: 0 0 2rem 0;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+}
+
+.registration-form label {
+  display: block;
+  margin: 0 0 0.5rem;
+  color: #e8f3f2;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="password"] {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #111827;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.registration-form input[type="text"]:focus,
+.registration-form input[type="password"]:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+.registration-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.registration-form br {
+  display: none;
+}
+
+.registration-form .submit-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.05s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.registration-form .submit-btn:hover {
+  background-color: #43a047;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.small-text {
+  text-align: center;
+  color: #a8d5ce;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.small-text a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.small-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .registration-card {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+  .registration-illustration {
+    min-height: 180px;
+    justify-content: center;
+    align-items: center;
+    grid-column: auto;
+  }
+  .registration-form {
+    grid-column: auto;
+  }
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+body {
+  background-color: #f4f7f6;
+  margin: 0;
 }
