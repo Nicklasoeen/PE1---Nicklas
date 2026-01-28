@@ -1,0 +1,14 @@
+{
+  "name": "pe1-nicklas",
+  "version": "1.0.0",
+  "description": "Personal project",
+  "scripts": {
+    "dev": "http-server -p 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
