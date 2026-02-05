@@ -1,29 +1,14 @@
 const API_URL = 'https://v2.api.noroff.dev';
+const BLOG_OWNER = 'Nicklasoeen';
 
 async function fetchPosts() {
-    const token = getToken();
-    const userName = localStorage.getItem('userName');
-
-    if (!token) {
-        console.error('No access token found. User might not be logged in.');
-        showPostsError('Please log in to view posts');
-        return null;
-    }
-
-    if (!userName) {
-        console.error('No username found. User might not be logged in.');
-        showPostsError('Please log in to view posts');
-        return null;
-    }
-
-    try {
-        const response = await fetch(`${API_URL}/blog/posts/${userName}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        });
+  try {
+    const response = await fetch(`${API_URL}/blog/posts/${BLOG_OWNER}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
 
         const data = await response.json();
         
@@ -75,7 +60,7 @@ function displayPosts(posts) {
         
         <div class="post-meta">
           <span class="post-tags">${post.tags ? post.tags.join(', ') : 'No tags'}</span>
-          <span class="post-comments">${post._count.comments} comments</span>
+          <span class="post-comments">${post._count?.comments || 0} comments</span>
         </div>
         
         <a href="/post/index.html?id=${post.id}" class="read-more">Read More →</a>

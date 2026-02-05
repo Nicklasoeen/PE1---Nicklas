@@ -12,10 +12,45 @@ function loadHeader() {
         link.href = '/css/styles.css';
         document.head.appendChild(link);
       }
+
+      updateNavigation();
     })
     .catch(error => console.error('Error loading header:', error));
 }
 
+function updateNavigation() {
+  const navList = document.querySelector('.nav-list');
+  if (!navList) return;
+
+  const loginLink = navList.querySelector('a[href="/account/login.html"]');
+  const registerLink = navList.querySelector('a[href="/account/register.html"]');
+  const logoutItem = navList.querySelector('.logout-item');
+
+  if (isLoggedIn()) {
+
+    if (loginLink) loginLink.parentElement.style.display = 'none';
+    if (registerLink) registerLink.parentElement.style.display = 'none';
+
+
+    if (!logoutItem) {
+      const logoutLi = document.createElement('li');
+      logoutLi.className = 'logout-item';
+      logoutLi.innerHTML = '<a href="#" id="logoutBtn">Logout</a>';
+      navList.appendChild(logoutLi);
+
+      document.getElementById('logoutBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        logout();
+      });
+    }
+  } else {
+
+    if (loginLink) loginLink.parentElement.style.display = 'block';
+    if (registerLink) registerLink.parentElement.style.display = 'block';
+
+    if (logoutItem) logoutItem.style.display = 'none';
+  }
+}
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', loadHeader);
