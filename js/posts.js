@@ -29,11 +29,16 @@ async function fetchPosts() {
 
 function displayPosts(posts) {
   const postsContainer = document.getElementById('postsContainer');
+  const carousel = document.getElementById('carousel');
   
  
   if (!postsContainer) {
     console.error('Posts container not found');
     return;
+  }
+
+  if (carousel) {
+    renderCarousel(posts, carousel);
   }
   
 
@@ -72,10 +77,55 @@ function displayPosts(posts) {
   });
 }
 
+function renderCarousel(posts, container) {
+  const sortedPosts = [...posts].sort((a, b) => {
+    const aDate = new Date(a.created || 0).getTime();
+    const bDate = new Date(b.created || 0).getTime();
+    return bDate - aDate;
+  });
+
+  const latestPosts = sortedPosts.slice(0, 3);
+
+  container.innerHTML = `
+    <div class="carousel-track">
+      ${latestPosts
+        .map((post) => {
+          const imageHtml = post.media
+            ? `<img src="${post.media.url}" alt="${post.media.alt}" class="carousel-image">`
+            : '<div class="carousel-image placeholder"></div>';
+
+          return `
+            <article class="carousel-slide">
+              ${imageHtml}
+              <div class="carousel-content">
+                <p class="carousel-date">${new Date(post.created).toLocaleDateString()}</p>
+                <h2>${post.title}</h2>
+                <p class="carousel-excerpt">${post.body.substring(0, 140)}...</p>
+                <a href="/post/index.html?id=${post.id}" class="read-more">Read More →</a>
+              </div>
+            </article>
+          `;
+        })
+        .join('')}
+    </div>
+    <button class="carousel-btn prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn next" aria-label="Next">›</button>
+    <div class="carousel-dots"></div>
+  `;
+
+  if (typeof initCarousel === 'function') {
+    initCarousel('#carousel');
+  }
+}
+
 function showPostsError(message) {
   const postsContainer = document.getElementById('postsContainer');
   if (postsContainer) {
     postsContainer.innerHTML = `<p class="error">${message}</p>`;
+  }
+  const carousel = document.getElementById('carousel');
+  if (carousel) {
+    carousel.innerHTML = '';
   }
 }
 
