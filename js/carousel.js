@@ -1,4 +1,3 @@
-// Simple slider with fade effect
 function initSlider() {
   const slider = document.getElementById('slider');
   if (!slider) return;
@@ -12,7 +11,7 @@ function initSlider() {
 
   let current = 0;
 
-  // Create dots
+
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -35,6 +34,5 @@ function initSlider() {
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 
-  // Auto-slide every 5 seconds
-  setInterval(() => goTo(current + 1), 5000);
+  setInterval(() => goTo(current + 1), 7000);
 }

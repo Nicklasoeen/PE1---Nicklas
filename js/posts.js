@@ -64,23 +64,22 @@ function displayPosts(posts) {
 
     const mediaUrl = post.media?.url || null;
     const mediaAlt = post.media?.alt || 'Post image';
+    const dateFormatted = new Date(post.created).toLocaleDateString();
+    const authorName = post.author?.name || 'Unknown';
 
     const postHTML = `
       <article class="post-card">
-        <h2>${post.title}</h2>
-        <p class="post-author">By ${post.author?.name || 'Unknown'}</p>
-        <p class="post-date">${new Date(post.created).toLocaleDateString()}</p>
-        
         ${mediaUrl ? `<img src="${mediaUrl}" alt="${mediaAlt}" class="post-image">` : ''}
-        
-        <p class="post-body">${post.body.substring(0, 200)}...</p>
-        
-        <div class="post-meta">
-          <span class="post-tags">${post.tags ? post.tags.join(', ') : 'No tags'}</span>
-          <span class="post-comments">${post._count?.comments || 0} comments</span>
+        <div class="post-card-content">
+          <div class="post-card-meta">
+            <span>${dateFormatted}</span>
+            <span>•</span>
+            <span>${authorName}</span>
+          </div>
+          <h2>${post.title}</h2>
+          <p class="post-body">${(post.body || '').substring(0, 90)}...</p>
+          <a href="/post/index.html?id=${post.id}" class="read-more">Read more →</a>
         </div>
-        
-        <a href="/post/index.html?id=${post.id}" class="read-more">Read More →</a>
       </article>
     `;
     
@@ -110,7 +109,7 @@ function renderSlider(posts, container) {
             <span class="slide-meta">${date} • ${author}</span>
             <h2>${title}</h2>
             <p>${excerpt}...</p>
-            <a href="/post/index.html?id=${post.id}" class="slide-btn">Les mer →</a>
+            <a href="/post/index.html?id=${post.id}" class="slide-btn">Read more →</a>
           </div>
         </div>
       `;
