@@ -478,6 +478,20 @@ body {
   text-decoration: none;
 }
 
+.post-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.post-card .edit-link {
+  background: var(--primary);
+}
+
+.post-card .edit-link:hover {
+  background: #034840;
+}
+
 @media (max-width: 1024px) {
   .slider {
     height: 380px;
@@ -580,6 +594,7 @@ main {
   }
 }
 .error-message {
+  display: none;
   background-color: #fee2e2;
   color: #dc2626;
   padding: 0.75rem 1rem;
@@ -590,6 +605,7 @@ main {
 }
 
 .success-message {
+  display: none;
   background-color: #dcfce7;
   color: #16a34a;
   padding: 0.75rem 1rem;
@@ -604,7 +620,6 @@ main {
   cursor: not-allowed;
 }
 
-/* ===== EDIT/CREATE POST FORM ===== */
 .create-post-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -640,7 +655,9 @@ main {
   border-radius: 10px;
   padding: 12px 14px;
   font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .form-group input:focus,
@@ -683,15 +700,15 @@ main {
   padding: 12px 20px;
   border-radius: 8px;
   border: 1px solid #fecaca;
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #b91c1c;
+  color: #ffffff;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .danger-btn:hover {
-  background: #fecaca;
+  background: #df0808;
 }
 
 .single-post-container {
@@ -757,6 +774,13 @@ main {
   margin-bottom: 32px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
+}
+
+.post-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .post-meta-info {

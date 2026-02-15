@@ -3,9 +3,14 @@ const BLOG_OWNER = 'Nicklasoeen';
 const DEFAULT_CAROUSEL_IMAGE =
   'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
+function getOwnerName() {
+  return localStorage.getItem('userName') || BLOG_OWNER;
+}
+
 async function fetchPosts() {
   try {
-    const response = await fetch(`${API_URL}/blog/posts/${BLOG_OWNER}`, {
+    const ownerName = getOwnerName();
+    const response = await fetch(`${API_URL}/blog/posts/${ownerName}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -59,6 +64,7 @@ function displayPosts(posts) {
   });
 
   const visiblePosts = sortedPosts.slice(0, 12);
+  const currentUser = localStorage.getItem('userName');
 
   visiblePosts.forEach(post => {
 
@@ -67,9 +73,11 @@ function displayPosts(posts) {
     const dateFormatted = new Date(post.created).toLocaleDateString();
     const authorName = post.author?.name || 'Unknown';
 
+    const isOwner = currentUser && post.author?.name === currentUser;
+
     const postHTML = `
       <article class="post-card">
-        ${mediaUrl ? `<img src="${mediaUrl}" alt="${mediaAlt}" class="post-image">` : ''}
+        ${mediaUrl ? `<a href="/post/index.html?id=${post.id}"><img src="${mediaUrl}" alt="${mediaAlt}" class="post-image"></a>` : ''}
         <div class="post-card-content">
           <div class="post-card-meta">
             <span>${dateFormatted}</span>
@@ -78,7 +86,10 @@ function displayPosts(posts) {
           </div>
           <h2>${post.title}</h2>
           <p class="post-body">${(post.body || '').substring(0, 90)}...</p>
-          <a href="/post/index.html?id=${post.id}" class="read-more">Read more →</a>
+          <div class="post-card-actions">
+            <a href="/post/index.html?id=${post.id}" class="read-more">Read more →</a>
+            ${isOwner ? `<a href="/post/edit.html?id=${post.id}" class="read-more edit-link">Edit</a>` : ''}
+          </div>
         </div>
       </article>
     `;
