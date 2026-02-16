@@ -905,7 +905,6 @@ main {
   margin-bottom: 24px;
 }
 
-/* Share Toast */
 .share-toast {
   position: fixed;
   bottom: 30px;
@@ -927,7 +926,6 @@ main {
   transform: translateX(-50%) translateY(0);
 }
 
-/* Single Post Responsive */
 @media (max-width: 768px) {
   .single-post-container {
     padding: 16px;

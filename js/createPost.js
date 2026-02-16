@@ -18,7 +18,6 @@ async function handleCreatePost(event) {
 
   const title = document.getElementById('title').value.trim();
   const body = document.getElementById('body').value.trim();
-  const tagsInput = document.getElementById('tags').value.trim();
   const mediaUrl = document.getElementById('mediaUrl').value.trim();
   const mediaAlt = document.getElementById('mediaAlt').value.trim();
 
@@ -37,16 +36,9 @@ async function handleCreatePost(event) {
     return;
   }
 
-  const tags = tagsInput
-    .split(',')
-    .map(tag => tag.trim())
-    .filter(tag => tag.length > 0);
-
-
   const requestData = {
     title,
     body,
-    tags,
   };
 
 

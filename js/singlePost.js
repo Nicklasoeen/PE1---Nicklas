@@ -130,12 +130,6 @@ function renderPost(post) {
       
       <h1 class="post-title">${post.title}</h1>
       
-      ${post.tags && post.tags.length > 0 ? `
-        <div class="post-tags">
-          ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-        </div>
-      ` : ''}
-      
       <div class="post-header-actions">
         ${isOwner ? `<a href="/post/edit.html?id=${post.id}" class="share-btn" title="Edit post">Edit</a>` : ''}
         <button class="share-btn" onclick="sharePost()" title="Share post">

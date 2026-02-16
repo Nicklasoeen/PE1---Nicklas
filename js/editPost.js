@@ -70,7 +70,15 @@ async function deletePost(postId, ownerName, token) {
     }
   });
 
-  const data = await response.json();
+  let data = null;
+  const text = await response.text();
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch (error) {
+      console.warn('Delete response was not JSON:', error);
+    }
+  }
   console.log('Edit Post Delete Response:', { status: response.status, data });
 
   return response.ok;
@@ -79,7 +87,6 @@ async function deletePost(postId, ownerName, token) {
 function populateForm(post) {
   document.getElementById('title').value = post.title || '';
   document.getElementById('body').value = post.body || '';
-  document.getElementById('tags').value = (post.tags || []).join(', ');
   document.getElementById('mediaUrl').value = post.media?.url || '';
   document.getElementById('mediaAlt').value = post.media?.alt || '';
 }
@@ -87,7 +94,6 @@ function populateForm(post) {
 function buildPayload() {
   const title = document.getElementById('title').value.trim();
   const body = document.getElementById('body').value.trim();
-  const tagsInput = document.getElementById('tags').value.trim();
   const mediaUrl = document.getElementById('mediaUrl').value.trim();
   const mediaAlt = document.getElementById('mediaAlt').value.trim();
 
@@ -106,12 +112,7 @@ function buildPayload() {
     return null;
   }
 
-  const tags = tagsInput
-    .split(',')
-    .map((tag) => tag.trim())
-    .filter((tag) => tag.length > 0);
-
-  const payload = { title, body, tags };
+  const payload = { title, body };
 
   if (mediaUrl) {
     if (!mediaAlt) {
