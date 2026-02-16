@@ -1,7 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   font-family: "Manrope", sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 :root {
@@ -23,7 +34,7 @@
   max-width: 1200px;
   align-items: center;
   margin: 20px auto;
-  width: 100%;
+  width: calc(100% - 40px);
 }
 
 .header-container {
@@ -80,7 +91,7 @@
 .container {
   background: none;
   border-radius: 10px;
-  padding: 0;
+  padding: 0 20px;
   box-shadow: none;
   max-width: 1200px;
   width: 100%;
@@ -228,22 +239,6 @@
 
 .small-text a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .registration-card {
-    grid-template-columns: 1fr;
-    max-width: 520px;
-  }
-  .registration-illustration {
-    min-height: 180px;
-    justify-content: center;
-    align-items: center;
-    grid-column: auto;
-  }
-  .registration-form {
-    grid-column: auto;
-  }
 }
 
 .submit-btn:active {
@@ -953,5 +948,171 @@ main {
   .post-footer .share-btn {
     justify-content: center;
     text-align: center;
+  }
+
+  /* header mobile */
+  .header {
+    border-radius: 8px;
+    padding: 0.75rem 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  .header-logo {
+    height: 40px;
+  }
+
+  .nav-list {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
+  }
+
+  .registration-wrapper {
+    margin: 20px 10px;
+  }
+
+  .registration-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .registration-illustration {
+    min-height: 150px;
+    order: 1;
+  }
+
+  .registration-form {
+    order: 2;
+    padding: 2rem 1.5rem;
+  }
+
+  .registration-form h1 {
+    font-size: 1.5rem;
+  }
+
+  .create-post-card {
+    padding: 20px;
+  }
+
+  .create-post-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .edit-actions {
+    flex-direction: column;
+  }
+
+  .edit-actions .submit-btn,
+  .edit-actions .danger-btn {
+    width: 100%;
+  }
+
+  /* footer mobile */
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-section .header-logo {
+    margin: 0 auto;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .slider {
+    height: 280px;
+    margin: 20px 0;
+    border-radius: 12px;
+  }
+
+  .slide-content {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 12px;
+  }
+
+  .slide-content h2 {
+    font-size: 1rem;
+    margin: 4px 0 8px;
+  }
+
+  .slide-content p {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .slide-meta {
+    font-size: 0.75rem;
+  }
+
+  .slide-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .slider-prev,
+  .slider-next {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    display: none;
+  }
+
+  .slider-prev {
+    left: 8px;
+  }
+
+  .slider-next {
+    right: 8px;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .post-card-content {
+    padding: 16px;
+  }
+
+  .post-card h2 {
+    font-size: 1rem;
+  }
+
+  .post-body {
+    font-size: 0.85rem;
+  }
+
+  .post-card .read-more {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+  }
+
+  .share-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
   }
 }
