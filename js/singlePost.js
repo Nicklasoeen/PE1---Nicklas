@@ -125,13 +125,13 @@ function renderPost(post) {
         <span class="post-author-name">${authorName}</span>
         <span class="meta-divider">•</span>
         <time datetime="${post.created}">${publishDate}</time>
-        ${updatedDate && updatedDate !== publishDate ? `<span class="meta-divider">•</span><span>Updated: ${updatedDate}</span>` : ''}
+        ${updatedDate && updatedDate !== publishDate ? '<span class="meta-divider">•</span><span>Updated: ' + updatedDate + '</span>' : ''}
       </div>
       
       <h1 class="post-title">${post.title}</h1>
       
       <div class="post-header-actions">
-        ${isOwner ? `<a href="edit.html?id=${post.id}" class="share-btn" title="Edit post">Edit</a>` : ''}
+        ${isOwner ? '<a href="edit.html?id=' + post.id + '" class="share-btn" title="Edit post">Edit</a>' : ''}
         <button class="share-btn" onclick="sharePost()" title="Share post">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"></circle>
