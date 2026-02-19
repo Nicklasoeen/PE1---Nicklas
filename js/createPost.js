@@ -3,7 +3,7 @@ const API_URL = 'https://v2.api.noroff.dev';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!isLoggedIn()) {
-    window.location.href = '/account/login.html';
+    window.location.href = '../account/login.html';
     return;
   }
 
@@ -78,7 +78,7 @@ async function handleCreatePost(event) {
     if (response.ok && data.data) {
       showError('Post published successfully! Redirecting...', true);
       setTimeout(() => {
-        window.location.href = '/index.html';
+        window.location.href = '../index.html';
       }, 1500);
     } else {
       let errorMsg = 'Failed to create post. Please try again.';

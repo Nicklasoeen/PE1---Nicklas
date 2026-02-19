@@ -87,7 +87,7 @@ function renderPost(post) {
       <div class="post-error">
         <h1>Post not found</h1>
         <p>Sorry, we couldn’t find the post you’re looking for.</p>
-        <a href="/" class="back-btn">← Back to home</a>
+        <a href="../index.html" class="back-btn">← Back to home</a>
       </div>
     `;
     document.title = 'Post not found';
@@ -114,7 +114,7 @@ function renderPost(post) {
 
   container.className = '';
   container.innerHTML = `
-    <a href="/" class="back-link">← Back to home</a>
+    <a href="../index.html" class="back-link">← Back to home</a>
     
     <div class="post-banner">
       <img src="${imageUrl}" alt="${imageAlt}" onerror="this.src='${DEFAULT_POST_IMAGE}'">
@@ -131,7 +131,7 @@ function renderPost(post) {
       <h1 class="post-title">${post.title}</h1>
       
       <div class="post-header-actions">
-        ${isOwner ? `<a href="/post/edit.html?id=${post.id}" class="share-btn" title="Edit post">Edit</a>` : ''}
+        ${isOwner ? `<a href="edit.html?id=${post.id}" class="share-btn" title="Edit post">Edit</a>` : ''
         <button class="share-btn" onclick="sharePost()" title="Share post">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"></circle>
@@ -150,7 +150,7 @@ function renderPost(post) {
     </div>
 
     <div class="post-footer">
-      <a href="/" class="back-btn">← Back to all posts</a>
+      <a href="../index.html" class="back-btn">← Back to all posts</a>
       <button class="share-btn" onclick="sharePost()">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="18" cy="5" r="3"></circle>

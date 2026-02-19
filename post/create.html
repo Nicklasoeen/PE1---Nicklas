@@ -4,12 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Post</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <script src="../js/authUtils.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/footer.js"></script>
+    <link rel="stylesheet" href="../css/styles.css?v=20260219" />
+    <script src="../js/authUtils.js?v=20260219"></script>
+    <script src="../js/nav.js?v=20260219"></script>
   </head>
   <body>
+    <header class="header">
+      <div class="header-container">
+        <a href="../index.html" class="header-logo-link">
+          <img src="../assets/logo.png" alt="Logo" class="header-logo" />
+        </a>
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <li><a href="../index.html">News</a></li>
+            <li class="nav-login"><a href="../account/login.html">Login</a></li>
+            <li class="nav-register"><a href="../account/register.html">Register</a></li>
+            <li class="nav-create" style="display:none"><a href="create.html">Create post</a></li>
+            <li class="nav-logout" style="display:none"><a href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <main>
       <div class="container">
         <div class="create-post-card">
@@ -66,6 +82,29 @@
       </div>
     </main>
 
-    <script src="/js/createPost.js"></script>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <a href="../index.html" class="header-logo-link">
+              <img src="../assets/logo.png" alt="Logo" class="header-logo" />
+            </a>
+          </div>
+          <div class="footer-section">
+            <h3>Sitemap</h3>
+            <ul>
+              <li><a href="../index.html">News</a></li>
+              <li><a href="../account/login.html">Login</a></li>
+              <li><a href="../account/register.html">Register</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 HotView Labs. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/createPost.js?v=20260219"></script>
   </body>
 </html>

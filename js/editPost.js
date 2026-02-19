@@ -145,7 +145,7 @@ async function handleUpdate(postId, ownerName) {
     if (updated) {
       showMessage('Post updated successfully! Redirecting...', true);
       setTimeout(() => {
-        window.location.href = `/post/index.html?id=${postId}`;
+        window.location.href = `index.html?id=${postId}`;
       }, 1200);
     } else {
       showMessage('Failed to update post. Please try again.');
@@ -179,7 +179,7 @@ async function handleDelete(postId, ownerName) {
     if (deleted) {
       showMessage('Post deleted. Redirecting...', true);
       setTimeout(() => {
-        window.location.href = '/index.html';
+        window.location.href = '../index.html';
       }, 1000);
     } else {
       showMessage('Failed to delete post. Please try again.');
@@ -195,7 +195,7 @@ async function handleDelete(postId, ownerName) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   if (!isLoggedIn()) {
-    window.location.href = '/account/login.html';
+    window.location.href = '../account/login.html';
     return;
   }
 

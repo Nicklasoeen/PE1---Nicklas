@@ -77,7 +77,7 @@ function displayPosts(posts) {
 
     const postHTML = `
       <article class="post-card">
-        ${mediaUrl ? `<a href="/post/index.html?id=${post.id}"><img src="${mediaUrl}" alt="${mediaAlt}" class="post-image"></a>` : ''}
+        ${mediaUrl ? `<a href="post/index.html?id=${post.id}"><img src="${mediaUrl}" alt="${mediaAlt}" class="post-image"></a>` : ''}
         <div class="post-card-content">
           <div class="post-card-meta">
             <span>${dateFormatted}</span>
@@ -87,8 +87,8 @@ function displayPosts(posts) {
           <h2>${post.title}</h2>
           <p class="post-body">${(post.body || '').substring(0, 90)}...</p>
           <div class="post-card-actions">
-            <a href="/post/index.html?id=${post.id}" class="read-more">Read more →</a>
-            ${isOwner ? `<a href="/post/edit.html?id=${post.id}" class="read-more edit-link">Edit</a>` : ''}
+            <a href="post/index.html?id=${post.id}" class="read-more">Read more →</a>
+            ${isOwner ? `<a href="post/edit.html?id=${post.id}" class="read-more edit-link">Edit</a>` : ''}
           </div>
         </div>
       </article>
@@ -120,7 +120,7 @@ function renderSlider(posts, container) {
             <span class="slide-meta">${date} • ${author}</span>
             <h2>${title}</h2>
             <p>${excerpt}...</p>
-            <a href="/post/index.html?id=${post.id}" class="slide-btn">Read more →</a>
+            <a href="post/index.html?id=${post.id}" class="slide-btn">Read more →</a>
           </div>
         </div>
       `;

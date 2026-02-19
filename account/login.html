@@ -4,13 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <script src="../js/authUtils.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/footer.js"></script>
-    <script src="../js/auth.js"></script>
+    <link rel="stylesheet" href="../css/styles.css?v=20260219" />
+    <script src="../js/authUtils.js?v=20260219"></script>
+    <script src="../js/nav.js?v=20260219"></script>
+    <script src="../js/auth.js?v=20260219"></script>
   </head>
   <body>
+    <header class="header">
+      <div class="header-container">
+        <a href="../index.html" class="header-logo-link">
+          <img src="../assets/logo.png" alt="Logo" class="header-logo" />
+        </a>
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <li><a href="../index.html">News</a></li>
+            <li class="nav-login"><a href="login.html">Login</a></li>
+            <li class="nav-register"><a href="register.html">Register</a></li>
+            <li class="nav-create" style="display:none"><a href="../post/create.html">Create post</a></li>
+            <li class="nav-logout" style="display:none"><a href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <div class="registration-wrapper">
       <div class="container">
         <div class="registration-card">
@@ -29,21 +45,40 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required />
 
-                <div
-                  id="errorMessage"
-                  class="error-message"
-                  style="display: none"
-                ></div>
+                <div id="errorMessage" class="error-message" style="display: none"></div>
 
                 <button type="submit" class="submit-btn">Sign in</button>
               </form>
               <p class="small-text">
-                Don't have an account? <a href="./register.html">Sign up</a>
+                Don't have an account? <a href="register.html">Sign up</a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <a href="../index.html" class="header-logo-link">
+              <img src="../assets/logo.png" alt="Logo" class="header-logo" />
+            </a>
+          </div>
+          <div class="footer-section">
+            <h3>Sitemap</h3>
+            <ul>
+              <li><a href="../index.html">News</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="register.html">Register</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 HotView Labs. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

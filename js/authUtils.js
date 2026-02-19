@@ -12,5 +12,5 @@ function logout() {
   localStorage.removeItem('accessToken');
   localStorage.removeItem('userName');
   localStorage.removeItem('userEmail');
-  window.location.href = '/account/login.html';
+  window.location.href = 'index.html';
 }
