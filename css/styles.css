@@ -111,7 +111,7 @@ body {
 }
 
 .registration-illustration {
-  background: url("/assets/close-up-view-of-green-abstract-creative-paper-bac-2026-01-06-00-29-07-utc.jpg")
+  background: url("../assets/close-up-view-of-green-abstract-creative-paper-bac-2026-01-06-00-29-07-utc.jpg")
     center/cover no-repeat;
   display: flex;
   align-items: flex-end;
