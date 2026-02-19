@@ -145,7 +145,7 @@ async function handleUpdate(postId, ownerName) {
     if (updated) {
       showMessage('Post updated successfully! Redirecting...', true);
       setTimeout(() => {
-        window.location.href = `index.html?id=${postId}`;
+        window.location.href = `../?id=${postId}`;
       }, 1200);
     } else {
       showMessage('Failed to update post. Please try again.');
