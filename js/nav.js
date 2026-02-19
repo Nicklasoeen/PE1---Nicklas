@@ -8,13 +8,11 @@ function updateNavigation() {
   const logoutLink = navList.querySelector('.nav-logout');
 
   if (isLoggedIn()) {
-    // Logged in: hide login/register, show create/logout
     if (loginLink) loginLink.style.display = 'none';
     if (registerLink) registerLink.style.display = 'none';
     if (createPostLink) createPostLink.style.display = 'block';
     if (logoutLink) logoutLink.style.display = 'block';
 
-    // Add logout event listener
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn && !logoutBtn.hasAttribute('data-listener')) {
       logoutBtn.setAttribute('data-listener', 'true');
@@ -24,7 +22,7 @@ function updateNavigation() {
       });
     }
   } else {
-    // Not logged in: show login/register, hide create/logout
+    // not logged in: show login/register and hide create/logout
     if (loginLink) loginLink.style.display = 'block';
     if (registerLink) registerLink.style.display = 'block';
     if (createPostLink) createPostLink.style.display = 'none';
